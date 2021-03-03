@@ -5,7 +5,7 @@
 
 export SHELL = /bin/bash
 export BUILD_HARNESS_PATH ?= $(shell until [ -d "$(BUILD_HARNESS_PROJECT)" ] || [ "`pwd`" == '/' ]; do cd ..; done; pwd)/$(BUILD_HARNESS_PROJECT)
-export BUILD_HARNESS_ORG ?= cloudposse
+export BUILD_HARNESS_ORG ?= rtluckie
 export BUILD_HARNESS_PROJECT ?= build-harness
 export BUILD_HARNESS_DOCKER_IMAGE ?= $(BUILD_HARNESS_ORG)/$(BUILD_HARNESS_PROJECT)
 export BUILD_HARNESS_BRANCH ?= master

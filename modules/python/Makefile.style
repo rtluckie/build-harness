@@ -1,0 +1,15 @@
+## Lint code
+python/lint: $(GO) go/vet
+	@echo "hello"
+
+## Execute YAPF
+python/yapf: $(python)
+	@cd $(PYTHON_SRC_DIR)
+	@yapf -i -r src/python/
+
+## Execute isort
+python/isort: $(python)
+	@isort --quiet --settings-path $(PYTHON_SRC_DIR)/setup.cfg  $(PYTHON_SRC_DIR)
+
+## Format code according to convention
+python/fmt: $(python) python/yapf python/isort

@@ -1,0 +1,3 @@
+## Build binary
+python/build: $(PYTHON)
+	echo "python/build"
