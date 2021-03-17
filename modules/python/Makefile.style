@@ -14,7 +14,12 @@ python/isort: $(python)
 ## Format code according to convention
 python/fmt: $(python) python/yapf python/isort
 
-
 ## Execute pytest
 python/pytest: $(python)
 	@pytest $(PYTHON_TEST_DIR)
+
+## Execute pytest-coverage
+python/coverage: $(python)
+	@pytest --verbose --cov-report term --cov-report xml --cov-report html --cov=$(PYTHON_SRC_DIR) $(PYTHON_TEST_DIR)
+
+
