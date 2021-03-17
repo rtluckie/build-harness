@@ -5,7 +5,7 @@ python/lint: $(GO) go/vet
 ## Execute YAPF
 python/yapf: $(python)
 	@cd $(PYTHON_SRC_DIR)
-	@yapf -i -r src/python/
+	@yapf -i -r $(PYTHON_SRC_DIR)
 
 ## Execute isort
 python/isort: $(python)
@@ -13,3 +13,8 @@ python/isort: $(python)
 
 ## Format code according to convention
 python/fmt: $(python) python/yapf python/isort
+
+
+## Execute pytest
+python/pytest: $(python)
+	@pytest $(PYTHON_TEST_DIR)
